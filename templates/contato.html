@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>BookWeb</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+    <link href="favicon.ico" rel="shortcut icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/animate.min.css') }}">
+
+
+    <!-- Main Stylesheet File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- =======================================================
+      Theme Name: Imperial
+      Theme URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
+      Author: BootstrapMade.com
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+<body>
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <a href="/"><img src="/static/img/logo.png" alt="" title=""/></img></a>
+            <!-- Uncomment below if you prefer to use a text image -->
+            <!--<h1><a href="#hero">Header 1</a></h1>-->
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="/">Home</a></li>
+                <li><a href="/acervo">Acervo</a></li>
+                <li><a href="/emprestimo">Empréstimo</a></li>
+                <li><a href="/contato">Contato</a></li>
+            </ul>
+        </nav>
+        <!-- #nav-menu-container -->
+    </div>
+</header>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<section>
+    <div class="banner">
+        <img src="/static/img/contato.png" alt="Banner fundo">
+    </div>
+</section>
+
+<section class="container50">
+    <div class="container20">
+        <div class="contato-info">
+            <h2>Contato</h2>
+            <p><i class="fa-solid fa-location-dot"></i> Av. Antônio Rodrigues Boucinha, <br>376-672 - Parque Industrial
+            </p>
+            <p><i class="fa-solid fa-phone"></i> (18) 99876-3245</p>
+            <p><i class="fa-solid fa-envelope"></i> Bookweb.com</p>
+            <p><i class="fa-solid fa-globe"></i>Penápolis - SP, 16300-000 </p>
+        </div>
+        <div class="contato-mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237749.31020558224!2d-50.22320796162452!3d-21.396480388221853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9496039e1400960d%3A0x118df3bc4af39f10!2sSESI%20PEN%C3%81POLIS!5e0!3m2!1spt-BR!2sbr!4v1760096939920!5m2!1spt-BR!2sbr"
+                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="formulario">
+        <h2>Mensagem</h2>
+        <form action="/cadastrarcontato" method="POST">
+            <div class="form-row">
+                <div class="campo">
+                    <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                </div>
+                <div class="campo2">
+                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required>
+                </div>
+            </div>
+
+            <div class="campos2">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto" required>
+                <textarea id="mensagem" name="mensagem" placeholder="Mensagem" required></textarea>
+
+                <button type="submit" class="botao-cadastrar">Enviar mensagem</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+</div>
+
+<footer class="rodape">
+    <p>BookWeb© 2025 | CNPJ 23452445/0001 | Desenvolvido por Giovanna e Marina</p>
+</footer>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+</body>
+</html>

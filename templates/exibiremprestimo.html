@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>BookWeb</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+  <link href="favicon.ico" rel="shortcut icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/animate.min.css') }}">
+
+  <!-- Main Stylesheet File -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+
+  <!-- =======================================================
+    Theme Name: Imperial
+    Theme URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="/"><img src="/static/img/logo.png" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Header 1</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">Home</a></li>
+          <li><a href="/acervo">Acervo</a></li>
+          <li><a href="/emprestimo">Empréstimo</a></li>
+          <li><a href="/contato">Contato</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
+   <div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<body class="inicio">
+        <div class="cardapio-card">
+            <form method="post" action="/buscaremprestimo">
+                <input type="text" name="termo" placeholder="Buscar título..." class="pesquisar">
+                <button type="submit">🔍 Buscar</button>
+            </form>
+            <br>
+            <a href="/emprestimoprocurar/ordenar/crescente/{{ paginaemprestimo }}">🔼 Ordem A-Z</a>
+            <a href="/emprestimoprocurar/ordenar/decrescente/{{ paginaemprestimo }}">🔽 Ordem Z-A</a>
+            <a href="/emprestimo/{{ paginaemprestimo}}">🔁 Limpar Filtros</a>
+        </div>
+ <div class="cards-container">
+    {% for emprestimo in Listaemprestimo %}
+    <div class="cardapio-card2">
+        <h2>{{ emprestimo[1] }}</h2>
+        <div class="centro">
+        <img class="foto" src="/imagememprestimo/{{ emprestimo[0] }}" alt="{{ emprestimo[1] }}">
+        <p>ID do livro: {{ emprestimo[0] }}</p>
+        <p>Título: {{ emprestimo[1] }}</p>
+        <p>nome do usuario: {{ emprestimo[2] }}</p>
+        <p>data do emprestimo: {{ emprestimo[3] }}</p>
+        <p>prazo da devolucao: {{ emprestimo[4] }}</p>
+        <br>
+        </div>
+        <a href="/editaremprestimo/{{ emprestimo[0] }}/{{ paginaemprestimo}}" class="btn-editar">✏️ Editar</a>
+        <a href="/excluiremprestimo/{{ emprestimo[0] }}/{{ paginaemprestimo}}" class="btn-excluir">🗑️ Excluir</a>
+    </div>
+    {% endfor %}
+ </div>
+
+    {% set pag = paginaemprestimo %}
+    {% set total = total_paginasemprestimo %}
+
+    <div class="paginacao">
+        {% if pag > 1 %}
+            {% set pag_anterior = pag - 1 %}
+            <a href="/emprestimo/{{ pag_anterior }}" class="button">Página Anterior</a>
+        {% endif %}
+        {% if pag < total %}
+            {% set pag_proxima = pag + 1 %}
+            <a href="/emprestimo/{{ pag_proxima }}" class="button">Próxima Página</a>
+        {% endif %}
+    </div>
+
+<footer class="rodape">
+    <p>BookWeb© 2025 | CNPJ 23452445/0001 | Desenvolvido por Giovanna e Marina</p>
+</footer>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+</body>
+</body>
+</html>
